@@ -9,7 +9,7 @@ client.on('ready', () => {
 client.on('message', msg => {
   if (msg.content === '!bruh') {
     msg.channel.send("Bruh Moment")
-    msg.channel.send(":bruh: :bruh: :bruh:")
+    msg.channel.send("<bruh:629372877388382209><bruh:629372877388382209><bruh:629372877388382209>")
   }
 });
 
