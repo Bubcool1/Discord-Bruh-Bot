@@ -19,5 +19,16 @@ client.on('message', msg => {
     msg.channel.send("🥚🥚🥚")
   }
 })
-
+client.on('message', msg => {
+  if (msg.content === '\🥚') {
+    msg.channel.send("You're an egg.")
+    msg.channel.send("🥚🥚🥚")
+  }
+})
+client.on('message', msg => {
+  if (msg.content === '!egg') {
+    msg.channel.send("You're an egg.")
+    msg.channel.send("🥚🥚🥚")
+  }
+})
 client.login(process.env.token);
