@@ -13,5 +13,11 @@ client.on('message', msg => {
     msg.channel.send("<:bruh:629372877388382209> <:bruh:629372877388382209> <:bruh:629372877388382209>")
   }
 });
+client.on('message', msg => {
+  if (msg.content === '🥚') {
+    msg.channel.send('Your an egg.')
+    msg.channel.send('🥚🥚🥚')
+  }
+})
 
 client.login(process.env.token);
