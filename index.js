@@ -20,9 +20,8 @@ client.on('message', msg => {
   }
 })
 client.on('message', msg => {
-  if (msg.content === '\🥚') {
-    msg.channel.send("You're an egg.")
-    msg.channel.send("🥚🥚🥚")
+  if (msg.content === "<:EJ:629372599432118292>") {
+    msg.channel.send("AH IT'S MUFFIN TIME <:squarenitin:632113566874599444>")
   }
 })
 client.on('message', msg => {
