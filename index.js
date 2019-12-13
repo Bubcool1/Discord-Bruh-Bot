@@ -8,7 +8,7 @@ client.on('ready', () => {
 
 client.on('message', msg => {
   if (msg.content === '!bruh') {
-    message.delete(1000)
+    msg.delete(1)
     msg.channel.send("Bruh Moment")
     msg.channel.send("<:bruh:629372877388382209> <:bruh:629372877388382209> <:bruh:629372877388382209>")
   }
