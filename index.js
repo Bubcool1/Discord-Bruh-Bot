@@ -15,8 +15,8 @@ client.on('message', msg => {
 });
 client.on('message', msg => {
   if (msg.content === '🥚') {
-    msg.channel.send('Your an egg.')
-    msg.channel.send('🥚🥚🥚')
+    msg.channel.send("Your an egg.")
+    msg.channel.send("🥚🥚🥚")
   }
 })
 
