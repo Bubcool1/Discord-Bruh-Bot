@@ -32,7 +32,7 @@ client.on('message', msg => {
   client.on('message', msg => {
     if (msg.content === 'wat') {
       msg.channel.send("some text", {
-        file: "bubcool1.github.com/wat/wat.jpg"
+        file: "https://bubcool1.github.io/wat/wat.jpg"
     });
     }
 })
