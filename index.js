@@ -29,5 +29,11 @@ client.on('message', msg => {
     msg.channel.send("You're an egg.")
     msg.channel.send("🥚🥚🥚")
   }
+  client.on('message', msg => {
+    if (msg.content === 'wat') {
+      msg.channel.send("some text", {
+        file: "bubcool1.github.com/wat/wat.jpg"
+    });
+    }
 })
 client.login(process.env.token);
