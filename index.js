@@ -31,9 +31,9 @@ client.on('message', msg => {
   }
   client.on('message', msg => {
     if (msg.content === 'wat') {
-      msg.channel.send("some text", {
-        file: "https://bubcool1.github.io/wat/wat.jpg"
-    });
+      const attachment = new MessageAttachment('https://bubcool1.github.io/wat/wat.jpg');
+      // Send the attachment in the message channel
+      msg.channel.send(attachment);
     }
 })
 client.login(process.env.token);
