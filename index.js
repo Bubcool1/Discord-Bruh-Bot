@@ -32,10 +32,8 @@ client.on('message', msg => {
 })
 client.on('message', msg => {
   if (msg.content === 'wat') {
-    message.channel.send('wat', {
-      files: [
-          "./wat.jpg"
-      ]
+    msg.channel.send('wat', {
+      files: ["./wat.jpg"]
   }
 })
 client.login(process.env.token);
