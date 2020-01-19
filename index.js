@@ -31,13 +31,13 @@ client.on('message', msg => {
   }
 })
 client.on('message', msg => {
-  if (msg.content === 'wat' OR  'Wat') {
+  if (msg.content === 'wat') {
     msg.channel.send(" ", {files: ["https://bubcool1.github.io/wat/wat.jpg"]});
   }
 })
-//client.on('message', msg => {
-//  if (msg.content === 'Wat') {
-//    msg.channel.send(" ", {files: ["https://bubcool1.github.io/wat/wat.jpg"]});
-//  }
-//})
+client.on('message', msg => {
+  if (msg.content === 'Wat') {
+    msg.channel.send(" ", {files: ["https://bubcool1.github.io/wat/wat.jpg"]});
+  }
+})
 client.login(process.env.token);
