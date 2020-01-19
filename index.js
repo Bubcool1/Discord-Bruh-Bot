@@ -32,7 +32,7 @@ client.on('message', msg => {
 })
 client.on('message', msg => {
   if (msg.content === 'wat') {
-    msg.channel.send("wat", {files: ["https://bubcool1.github.io/wat/"]});
+    msg.channel.send(" ", {files: ["https://bubcool1.github.io/wat/wat.jpg"]});
   }
 })
 client.login(process.env.token);
