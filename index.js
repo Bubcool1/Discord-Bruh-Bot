@@ -31,7 +31,7 @@ client.on('message', msg => {
   }
 })
 client.on('message', msg => {
-  if (msg.content.toLowerCase === 'wat') {
+  if (msg.content === 'wat' OR  'Wat') {
     msg.channel.send(" ", {files: ["https://bubcool1.github.io/wat/wat.jpg"]});
   }
 })
