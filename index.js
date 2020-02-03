@@ -12,7 +12,7 @@ client.on('ready', () => {
       client.user.setPresence({
           game: {
               name: 'RESPONSES',
-              type: "Touching",
+              type: "Watching",
               url: "http://obeardsall.media/wat/"
           }
       });
@@ -50,6 +50,11 @@ client.on('message', msg => {
 client.on('message', msg => {
   if (msg.content === 'Wat') {
     msg.channel.send(" ", {files: ["https://bubcool1.github.io/wat/wat.jpg"]});
+  }
+})
+client.on('message', msg => {
+  if (msg.content === '@Bruh Bot#4198') {
+    msg.channel.send("Fuck do you want.")
   }
 })
 client.login(process.env.token);
