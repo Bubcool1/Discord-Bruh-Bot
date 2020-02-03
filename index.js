@@ -6,6 +6,18 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
+client.on('ready', () => {
+  console.log('Bot: Hosting ' + `${client.users.size}` + ' users, in ' + `${client.channels.size}` + ' channels of ' + `${client.guilds.size}` + ' guilds.');
+      client.user.setStatus('online')
+      client.user.setPresence({
+          game: {
+              name: 'RESPONSES',
+              type: "Playing",
+              url: "http://obeardsall.media/wat/"
+          }
+      });
+  });
+
 client.on('message', msg => {
   if (msg.content === '!bruh') {
     msg.delete(1)
