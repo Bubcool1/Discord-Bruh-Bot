@@ -12,7 +12,7 @@ client.on('ready', () => {
       client.user.setPresence({
           game: {
               name: 'RESPONSES',
-              type: "Playing",
+              type: "Touching",
               url: "http://obeardsall.media/wat/"
           }
       });
