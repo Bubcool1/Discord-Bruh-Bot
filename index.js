@@ -12,7 +12,7 @@ client.on('ready', () => {
       client.user.setPresence({
           game: {
               name: 'FOR RESPONSES',
-              type: "Watching",
+              type: "Waiting",
               url: "http://obeardsall.media/wat/"
           }
       });
