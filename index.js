@@ -11,7 +11,7 @@ client.on('ready', () => {
       client.user.setStatus('online')
       client.user.setPresence({
           game: {
-              name: 'RESPONSES',
+              name: 'FOR RESPONSES',
               type: "Watching",
               url: "http://obeardsall.media/wat/"
           }
