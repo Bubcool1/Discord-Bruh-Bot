@@ -57,4 +57,10 @@ client.on('message', msg => {
     msg.channel.send("Fuck do you want.")
   }
 })
+client.on('message', msg => {
+  if (msg.content === '!goose') {
+    msg.channel.send("GOOSE")
+    msg.channel.send("https://samperson.itch.io/desktop-goose?download")
+  }
+})
 client.login(process.env.token);
