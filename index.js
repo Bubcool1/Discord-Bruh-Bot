@@ -80,4 +80,9 @@ client.on('message', msg => {
     msg.channel.send("http://obeardsall.media/bruh-bot/Meme6.png")
   }
 })
+client.on('message', msg => {
+  if(msg.content === "!oli"){
+    msg.channel.send("https://media.discordapp.net/attachments/653527445579890688/677115456695304193/2399210527.png")
+  }
+})
 client.login(process.env.token);
