@@ -53,30 +53,29 @@ client.on('message', msg => {
   }
 })
 client.on('message', msg => {
-  if (msg.content === '@Bruh Bot#4198') {
-    msg.channel.send("Fuck do you want.")
-  }
-})
-client.on('message', msg => {
   if (msg.content === 'pls goose') {
+    msg.delete(1)
     msg.channel.send("GOOSE")
     msg.channel.send("https://samperson.itch.io/desktop-goose?download")
   }
 })
 client.on('message', msg => {
   if (msg.content === '!goosegif') {
+    msg.delete(1)
     msg.channel.send("HONK HONK HONK")
     msg.channel.send("http://obeardsall.media/bruh-bot/GooseDance.gif")
   }
 })
 client.on('message', msg => {
   if (msg.content === '!honks') {
+    msg.delete(1)
     msg.channel.send("HONK HONK HONK")
     msg.channel.send("http://obeardsall.media/bruh-bot/Meme2.png")
   }
 })
 client.on('message', msg => {
   if (msg.content === '!badgoose') {
+    msg.delete(1)
     msg.channel.send("HONK HONK HONK")
     msg.channel.send("http://obeardsall.media/bruh-bot/Meme6.png")
   }
