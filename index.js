@@ -58,9 +58,27 @@ client.on('message', msg => {
   }
 })
 client.on('message', msg => {
-  if (msg.content === '!goose') {
+  if (msg.content === 'pls goose') {
     msg.channel.send("GOOSE")
     msg.channel.send("https://samperson.itch.io/desktop-goose?download")
+  }
+})
+client.on('message', msg => {
+  if (msg.content === '!goosegif') {
+    msg.channel.send("HONK HONK HONK")
+    msg.channel.send("assets/GooseDance.gif")
+  }
+})
+client.on('message', msg => {
+  if (msg.content === '!honks') {
+    msg.channel.send("HONK HONK HONK")
+    msg.channel.send("assets/Meme2.png")
+  }
+})
+client.on('message', msg => {
+  if (msg.content === '!badgoose') {
+    msg.channel.send("HONK HONK HONK")
+    msg.channel.send("assets/Meme6.png")
   }
 })
 client.login(process.env.token);
