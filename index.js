@@ -66,19 +66,19 @@ client.on('message', msg => {
 client.on('message', msg => {
   if (msg.content === '!goosegif') {
     msg.channel.send("HONK HONK HONK")
-    msg.channel.send("assets/GooseDance.gif")
+    msg.channel.send("http://obeardsall.media/bruh-bot/GooseDance.gif")
   }
 })
 client.on('message', msg => {
   if (msg.content === '!honks') {
     msg.channel.send("HONK HONK HONK")
-    msg.channel.send("assets/Meme2.png")
+    msg.channel.send("http://obeardsall.media/bruh-bot/Meme2.png")
   }
 })
 client.on('message', msg => {
   if (msg.content === '!badgoose') {
     msg.channel.send("HONK HONK HONK")
-    msg.channel.send("assets/Meme6.png")
+    msg.channel.send("http://obeardsall.media/bruh-bot/Meme6.png")
   }
 })
 client.login(process.env.token);
