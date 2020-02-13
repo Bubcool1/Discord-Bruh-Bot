@@ -53,13 +53,6 @@ client.on('message', msg => {
   }
 })
 client.on('message', msg => {
-  if (msg.content === 'pls goose') {
-    msg.delete(1)
-    msg.channel.send("GOOSE")
-    msg.channel.send("https://samperson.itch.io/desktop-goose?download")
-  }
-})
-client.on('message', msg => {
   if (msg.content === '!goosegif') {
     msg.delete(1)
     msg.channel.send("HONK HONK HONK")
@@ -83,6 +76,30 @@ client.on('message', msg => {
 client.on('message', msg => {
   if(msg.content === "!oli"){
     msg.channel.send("Ha no.")
+  }
+})
+client.on('message', msg => {
+  if (msg.content === 'pls goose') {
+    msg.delete(1)
+    msg.channel.send("GOOSE")
+    msg.channel.send("https://samperson.itch.io/desktop-goose?download")
+  }
+})
+client.on('message', msg => {
+  if (msg.content === 'Pls goose') {
+    msg.delete(1)
+    msg.channel.send("GOOSE")
+    msg.channel.send("https://samperson.itch.io/desktop-goose?download")
+  }
+})
+client.on('message', msg => {
+  if(msg.content === "pls goose mods"){
+    msg.channel.send("https://desktopgooseunofficial.github.io/ResourceHub/")
+  }
+})
+client.on('message', msg => {
+  if(msg.content === "Pls goose mods"){
+    msg.channel.send("https://desktopgooseunofficial.github.io/ResourceHub/")
   }
 })
 client.login(process.env.token);
