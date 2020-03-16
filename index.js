@@ -102,4 +102,24 @@ client.on('message', msg => {
     msg.channel.send("https://desktopgooseunofficial.github.io/ResourceHub/")
   }
 })
+
+client.on('message', msg => {
+  if msg.content === "!bruhgif"){
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', "api.giphy.com/v1/gifs/search?bruh+moment&api_key={apikey}&limit=1", true);
+
+    xhr.send();
+
+    xhr.onreadystatechange = processRequest;
+
+    function processRequest(e) {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        // time to partay!!!
+        document.getElementById('randImg').src = JSON.parse(xhr.responseText).data.images.original.url;
+      }
+    }
+    msg.channel.send("haha lol.")
+    msg.channel.send(randImg)
+  }
+})
 client.login(process.env.token);
