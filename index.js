@@ -44,33 +44,33 @@ client.on('message', msg => {
 })
 client.on('message', msg => {
   if (msg.content === 'wat') {
-    msg.channel.send(" ", {files: ["https://bubcool1.github.io/wat/wat.jpg"]});
+    msg.channel.send(" ", {files: ["assets/wat.jpg"]});
   }
 })
 client.on('message', msg => {
   if (msg.content === 'Wat') {
-    msg.channel.send(" ", {files: ["https://bubcool1.github.io/wat/wat.jpg"]});
+    msg.channel.send(" ", {files: ["assets/wat.jpg"]});
   }
 })
 client.on('message', msg => {
   if (msg.content === '!goosegif') {
     msg.delete(1)
     msg.channel.send("HONK HONK HONK")
-    msg.channel.send("http://obeardsall.media/bruh-bot/GooseDance.gif")
+    msg.channel.send("assets/GooseDance.gif")
   }
 })
 client.on('message', msg => {
   if (msg.content === '!honks') {
     msg.delete(1)
     msg.channel.send("HONK HONK HONK")
-    msg.channel.send("http://obeardsall.media/bruh-bot/Meme2.png")
+    msg.channel.send("assets/Meme2.png")
   }
 })
 client.on('message', msg => {
   if (msg.content === '!badgoose') {
     msg.delete(1)
     msg.channel.send("HONK HONK HONK")
-    msg.channel.send("http://obeardsall.media/bruh-bot/Meme6.png")
+    msg.channel.send("assets/Meme6.png")
   }
 })
 client.on('message', msg => {
