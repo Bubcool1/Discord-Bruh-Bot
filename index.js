@@ -102,4 +102,11 @@ client.on('message', msg => {
     msg.channel.send("https://desktopgooseunofficial.github.io/ResourceHub/")
   }
 })
+// You wanna remove this later.
+client.on('message', msg => {
+  if (msg.content === 'watspam') {
+    msg.channel.send("watspam", {files: ["assets/wat.jpg"]});
+  }
+})
+
 client.login(process.env.token);
