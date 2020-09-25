@@ -103,5 +103,15 @@ client.on('message', msg => {
   }
 })
 
+client.on('message', msg => {
+  if (msg.content === 'wot') {
+    msg.channel.send(" ", {files: ["assets/YOUWOTM9-1.jpg"]});
+  }
+})
+client.on('message', msg => {
+  if (msg.content === 'Wot') {
+    msg.channel.send(" ", {files: ["assets/YOUWOTM9-2.jpg"]});
+  }
+})
 
 client.login(process.env.token);
