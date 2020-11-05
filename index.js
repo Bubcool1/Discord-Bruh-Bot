@@ -119,14 +119,14 @@ client.on('message', msg => {
 client.on('message', msg => {
   if (msg.content === '!nerd') {
     msg.channel.send("You are a nerd");
-    message.react('🇳').then(r => {
-    message.react('🇪');
+    msg.react('🇳').then(r => {
+    msg.react('🇪');
     });
-  message.react('🇪').then(r => {
-    message.react('🇷');
+  msg.react('🇪').then(r => {
+    msg.react('🇷');
     });
-  message.react('🇷').then(r => {
-    message.react('🇩');
+  msg.react('🇷').then(r => {
+    msg.react('🇩');
     });
   }
 })
