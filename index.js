@@ -118,6 +118,7 @@ client.on('message', msg => {
 
 client.on('message', msg => {
   if (msg.content === '!nerd') {
+    msg.delete(1)
     msg.channel.send("You are a nerd");
     msg.react('🇳').then(r => {
     msg.react('🇪');
@@ -132,7 +133,7 @@ client.on('message', msg => {
 })
 
 client.on('message', msg => {
-  if (msg.content == 'noice') {
+  if (msg.content.toLowerCase() == 'noice') {
     msg.channel.send("https://www.youtube.com/watch?v=26lZvxwWzY0")
   }
 })
