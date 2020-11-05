@@ -122,11 +122,9 @@ client.on('message', msg => {
     message.react('🇳').then(r => {
     message.react('🇪');
     });
-  }
   message.react('🇪').then(r => {
     message.react('🇷');
     });
-  }
   message.react('🇷').then(r => {
     message.react('🇩');
     });
