@@ -116,6 +116,29 @@ client.on('message', msg => {
   }
 })
 
+client.on('message', msg => {
+  if (msg.content === '!nerd') {
+    msg.channel.send("You are a nerd"});
+    message.react('🇳').then(r => {
+    message.react('🇪');
+    });
+  }
+  message.react('🇪').then(r => {
+    message.react('🇷');
+    });
+  }
+  message.react('🇷').then(r => {
+    message.react('🇩');
+    });
+  }
+})
+
+client.on('message', msg => {
+  if (msg.content == 'noice') {
+    msg.channel.send("https://www.youtube.com/watch?v=26lZvxwWzY0")
+  }
+})
+
 client.login(process.env.token);
 
 // Added for local testing
