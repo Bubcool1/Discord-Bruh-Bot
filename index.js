@@ -54,21 +54,21 @@ client.on('message', msg => {
   if (msg.content === '!goosegif') {
     msg.delete(1)
     msg.channel.send("HONK HONK HONK")
-    msg.channel.send("assets/GooseDance.gif")
+    msg.channel.send(" ", {files: ["assets/GooseDance.gif"]});
   }
 })
 client.on('message', msg => {
   if (msg.content === '!honks') {
     msg.delete(1)
     msg.channel.send("HONK HONK HONK")
-    msg.channel.send("assets/Meme2.png")
+    msg.channel.send(" ", {files: ["assets/GooseHonks.png"]});
   }
 })
 client.on('message', msg => {
   if (msg.content === '!badgoose') {
     msg.delete(1)
     msg.channel.send("HONK HONK HONK")
-    msg.channel.send("assets/Meme6.png")
+    msg.channel.send(" ", {files: ["assets/GooseBonk.png"]});
   }
 })
 client.on('message', msg => {
