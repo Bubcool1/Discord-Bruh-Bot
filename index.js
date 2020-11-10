@@ -115,6 +115,12 @@ client.on('message', msg => {
     msg.channel.send(" ", {files: ["assets/YOUWOTM9-2.jpg"]});
   }
 })
+client.on('message', msg => {
+  if (msg.content === '!shut') {
+    msg.delete(1)
+    msg.channel.send(" ", {files: ["assets/shut.jpg"]});
+  }
+});
 
 client.login(process.env.token);
 
