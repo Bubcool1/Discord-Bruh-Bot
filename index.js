@@ -103,11 +103,11 @@ client.on('message', msg => {
 client.on('message', msg => {
   if (msg.content === '!shut') {
     msg.delete(1)
-    msg.channel.send(" ", {files: ["assets/shut.jpg"]});
+    msg.channel.send(" ", {files: ["assets/shut.png"]});
   }
 });
 
-// client.on('message', msg => {
+// cl)ient.on('message', msg => {
 //   if (msg.content === '!nerd') {
 //     // msg.delete(1)
 //     // msg.channel.send("You are a nerd");
@@ -117,7 +117,7 @@ client.on('message', msg => {
 //     // msg.react('🇪').then(r => {
 //     //   msg.react('🇷');
 //     //   });
-//     // msg.react('🇷').then(r => {
+//     // msg.react('🇷'.then(r => {
 //     //   msg.react('🇩');
 //     //   });
 //   }
