@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 // Added for local testing
-//require('dotenv').config()
+// require('dotenv').config()
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -45,15 +45,11 @@ client.on('message', msg => {
   }
 })
 client.on('message', msg => {
-  if (msg.content === 'wat') {
+  if (msg.content.toLowerCase() === 'wat') {
     msg.channel.send(" ", {files: ["assets/wat.jpg"]});
   }
 })
-client.on('message', msg => {
-  if (msg.content === 'Wat') {
-    msg.channel.send(" ", {files: ["assets/wat.jpg"]});
-  }
-})
+
 client.on('message', msg => {
   if (msg.content === '!goosegif') {
     msg.delete(1)
@@ -81,26 +77,15 @@ client.on('message', msg => {
   }
 })
 client.on('message', msg => {
-  if (msg.content === 'pls goose') {
+  if (msg.content.toLowerCase() === 'pls goose') {
     msg.delete(1)
     msg.channel.send("GOOSE")
     msg.channel.send("https://samperson.itch.io/desktop-goose?download")
   }
 })
+
 client.on('message', msg => {
-  if (msg.content === 'Pls goose') {
-    msg.delete(1)
-    msg.channel.send("GOOSE")
-    msg.channel.send("https://samperson.itch.io/desktop-goose?download")
-  }
-})
-client.on('message', msg => {
-  if(msg.content === "pls goose mods"){
-    msg.channel.send("https://desktopgooseunofficial.github.io/ResourceHub/")
-  }
-})
-client.on('message', msg => {
-  if(msg.content === "Pls goose mods"){
+  if(msg.content.toLowerCase() === "pls goose mods"){
     msg.channel.send("https://desktopgooseunofficial.github.io/ResourceHub/")
   }
 })
@@ -122,8 +107,31 @@ client.on('message', msg => {
   }
 });
 
+// client.on('message', msg => {
+//   if (msg.content === '!nerd') {
+//     // msg.delete(1)
+//     // msg.channel.send("You are a nerd");
+//     msg.react('🇳').then(r => {
+//       msg.react('🇪');
+//       });
+//     // msg.react('🇪').then(r => {
+//     //   msg.react('🇷');
+//     //   });
+//     // msg.react('🇷').then(r => {
+//     //   msg.react('🇩');
+//     //   });
+//   }
+// })
+
+client.on('message', msg => {
+  if (msg.content.toLowerCase() == 'noice') {
+    msg.delete(1)
+    msg.channel.send(" ", {files: ["assets/noice.gif"]})
+  }
+})
+
 client.login(process.env.token);
 
 // Added for local testing
-//const TOKEN = process.env.TOKEN;
-//client.login(TOKEN);
+// const TOKEN = process.env.TOKEN;
+// client.login(TOKEN);
