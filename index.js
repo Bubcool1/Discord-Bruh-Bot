@@ -1,8 +1,8 @@
-const Discord = require('discord.js');
-const client = new Discord.Client();
+const { Client, MessageAttachment } = require('discord.js');
+const client = new Client();
 
 // Added for local testing
-// require('dotenv').config()
+require('dotenv').config()
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -22,7 +22,7 @@ client.on('ready', () => {
 
 client.on('message', msg => {
   if (msg.content === '!bruh') {
-    msg.delete(1)
+    msg.delete({ timeout: 1})
     msg.channel.send("Bruh Moment")
     msg.channel.send("<:bruh:629372877388382209> <:bruh:629372877388382209> <:bruh:629372877388382209>")
   }
@@ -52,21 +52,22 @@ client.on('message', msg => {
 
 client.on('message', msg => {
   if (msg.content === '!goosegif') {
-    msg.delete(1)
+    msg.delete({ timeout: 1})
     msg.channel.send("HONK HONK HONK")
-    msg.channel.send(" ", {files: ["assets/GooseDance.gif"]});
+    const attachment = new MessageAttachment('assets/GooseDance.gif');
+    msg.channel.send(attachment);
   }
 })
 client.on('message', msg => {
   if (msg.content === '!honks') {
-    msg.delete(1)
+    msg.delete({ timeout: 1})
     msg.channel.send("HONK HONK HONK")
     msg.channel.send(" ", {files: ["assets/GooseHonks.png"]});
   }
 })
 client.on('message', msg => {
   if (msg.content === '!badgoose') {
-    msg.delete(1)
+    msg.delete({ timeout: 1})
     msg.channel.send("HONK HONK HONK")
     msg.channel.send(" ", {files: ["assets/GooseBonk.png"]});
   }
@@ -78,8 +79,6 @@ client.on('message', msg => {
 })
 client.on('message', msg => {
   if (msg.content.toLowerCase() === 'pls goose') {
-    msg.delete(1)
-    msg.channel.send("GOOSE")
     msg.channel.send("https://samperson.itch.io/desktop-goose?download")
   }
 })
@@ -102,14 +101,14 @@ client.on('message', msg => {
 })
 client.on('message', msg => {
   if (msg.content === '!shut') {
-    msg.delete(1)
+    msg.delete({ timeout: 1})
     msg.channel.send(" ", {files: ["assets/shut.png"]});
   }
 });
 
 // cl)ient.on('message', msg => {
 //   if (msg.content === '!nerd') {
-//     // msg.delete(1)
+//     // msg.delete({ timeout: 1})
 //     // msg.channel.send("You are a nerd");
 //     msg.react('🇳').then(r => {
 //       msg.react('🇪');
@@ -125,13 +124,13 @@ client.on('message', msg => {
 
 client.on('message', msg => {
   if (msg.content.toLowerCase() == 'noice') {
-    msg.delete(1)
+    msg.delete({ timeout: 1})
     msg.channel.send(" ", {files: ["assets/noice.gif"]})
   }
 })
 
-client.login(process.env.token);
+// client.login(process.env.token);
 
 // Added for local testing
-// const TOKEN = process.env.TOKEN;
-// client.login(TOKEN);
+const TOKEN = process.env.TOKEN;
+client.login(TOKEN);

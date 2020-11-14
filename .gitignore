@@ -3,3 +3,4 @@ config.json
 config.json.example
 CNAME
 node_modules/*
+package-lock.json
