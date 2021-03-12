@@ -1,4 +1,4 @@
-const { Client, MessageAttachment } = require('discord.js');
+const { Client, MessageAttachment, Message } = require('discord.js');
 const client = new Client();
 
 // Added for local testing
@@ -7,6 +7,12 @@ require('dotenv').config()
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
+
+// Firebase for Thermal telegram
+const admin = require('firebase-admin');
+admin.initializeApp();
+
+const db = admin.firestore();
 
 client.on('ready', () => {
   console.log('Bot: Hosting ' + `${client.users.size}` + ' users, in ' + `${client.channels.size}` + ' channels of ' + `${client.guilds.size}` + ' guilds.');
@@ -106,28 +112,57 @@ client.on('message', msg => {
   }
 });
 
-// cl)ient.on('message', msg => {
+// client.on('message', msg => {
 //   if (msg.content === '!nerd') {
 //     // msg.delete({ timeout: 1})
 //     // msg.channel.send("You are a nerd");
 //     msg.react('🇳').then(r => {
 //       msg.react('🇪');
 //       });
-//     // msg.react('🇪').then(r => {
-//     //   msg.react('🇷');
-//     //   });
-//     // msg.react('🇷'.then(r => {
-//     //   msg.react('🇩');
-//     //   });
+//     msg.react('🇪').then(r => {
+//       msg.react('🇷');
+//       });
+//     msg.react('🇷').then(r => {
+//       msg.react('🇩');
+//       });
 //   }
 // })
+
+// client.on('message', msg => {
+//   if (msg.content === '!testnerd') {
+//     msg.channel.fetchMessages({
+//       limit: 1
+//       })
+//     .then(r => {
+//       msg.react("✅")
+//     });
+// };
 
 client.on('message', msg => {
   if (msg.content.toLowerCase() == 'noice') {
     msg.delete({ timeout: 1})
     msg.channel.send(" ", {files: ["assets/noice.gif"]})
-  }
-})
+  };
+});
+
+client.on('message', msg => {
+  if (!msg.content.startsWith('!print') || msg.author.bot) return;
+    global.args = msg.content.slice(6).trim();
+    if(args == "") {
+        msg.channel.send("Please give a message.");
+    }
+    else {
+      var content = args + " " + msg.author.tag
+      console.log(content)
+
+      db.collection('requests').doc().set({
+        printed: false,
+        text: content
+      });
+
+    }
+});
+
 
 // client.login(process.env.token);
 
