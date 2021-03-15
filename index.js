@@ -155,11 +155,11 @@ client.on('message', msg => {
       var content = args + " " + msg.author.tag
       console.log(content)
 
-      db.collection('requests').doc().set({
+      db.collection('requests').doc('test').set({
         printed: false,
         text: content
       });
-
+      console.log("Message sent:" + args)
     }
 });
 
