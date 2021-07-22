@@ -26,123 +26,31 @@ client.on('ready', () => {
       });
   });
 
-client.on('message', msg => {
-  if (msg.content === '!bruh') {
-    msg.delete({ timeout: 1})
-    msg.channel.send("Bruh Moment")
-    msg.channel.send("<:bruh:629372877388382209> <:bruh:629372877388382209> <:bruh:629372877388382209>")
-  }
-});
-client.on('message', msg => {
-  if (msg.content === '🥚') {
-    msg.channel.send("You're an egg.")
-    msg.channel.send("🥚🥚🥚")
-  }
-})
-client.on('message', msg => {
-  if (msg.content === "<:EJ:629372599432118292>") {
-    msg.channel.send("AH IT'S MUFFIN TIME <:squarenitin:632113566874599444>")
-  }
-})
-client.on('message', msg => {
-  if (msg.content === '!egg') {
-    msg.channel.send("You're an egg.")
-    msg.channel.send("🥚🥚🥚")
-  }
-})
-client.on('message', msg => {
-  if (msg.content.toLowerCase() === 'wat') {
-    msg.channel.send(" ", {files: ["assets/wat.jpg"]});
-  }
-})
+  client.on('ready', () => {
+    client.api.applications(client.user.id).guilds('855023117348765728').commands.post({
+        data: {
+            name: "bruh",
+            description: "main bruh command"
+            // possible options here e.g. options: [{...}]
+        }
+    });
 
-client.on('message', msg => {
-  if (msg.content === '!goosegif') {
-    msg.delete({ timeout: 1})
-    msg.channel.send("HONK HONK HONK")
-    const attachment = new MessageAttachment('assets/GooseDance.gif');
-    msg.channel.send(attachment);
-  }
-})
-client.on('message', msg => {
-  if (msg.content === '!honks') {
-    msg.delete({ timeout: 1})
-    msg.channel.send("HONK HONK HONK")
-    msg.channel.send(" ", {files: ["assets/GooseHonks.png"]});
-  }
-})
-client.on('message', msg => {
-  if (msg.content === '!badgoose') {
-    msg.delete({ timeout: 1})
-    msg.channel.send("HONK HONK HONK")
-    msg.channel.send(" ", {files: ["assets/GooseBonk.png"]});
-  }
-})
-client.on('message', msg => {
-  if(msg.content === "!oli"){
-    msg.channel.send("Ha no.")
-  }
-})
-client.on('message', msg => {
-  if (msg.content.toLowerCase() === 'pls goose') {
-    msg.channel.send("https://samperson.itch.io/desktop-goose?download")
-  }
-})
 
-client.on('message', msg => {
-  if(msg.content.toLowerCase() === "pls goose mods"){
-    msg.channel.send("https://desktopgooseunofficial.github.io/ResourceHub/")
-  }
-})
+    client.ws.on('INTERACTION_CREATE', async interaction => {
+        const command = interaction.data.name.toLowerCase();
+        const args = interaction.data.options;
 
-client.on('message', msg => {
-  if (msg.content === 'wot') {
-    msg.channel.send(" ", {files: ["assets/YOUWOTM9-1.jpg"]});
-  }
-})
-client.on('message', msg => {
-  if (msg.content === 'Wot') {
-    msg.channel.send(" ", {files: ["assets/YOUWOTM9-2.jpg"]});
-  }
-})
-client.on('message', msg => {
-  if (msg.content === '!shut') {
-    msg.delete({ timeout: 1})
-    msg.channel.send(" ", {files: ["assets/shut.png"]});
-  }
-});
-
-// client.on('message', msg => {
-//   if (msg.content === '!nerd') {
-//     // msg.delete({ timeout: 1})
-//     // msg.channel.send("You are a nerd");
-//     msg.react('🇳').then(r => {
-//       msg.react('🇪');
-//       });
-//     msg.react('🇪').then(r => {
-//       msg.react('🇷');
-//       });
-//     msg.react('🇷').then(r => {
-//       msg.react('🇩');
-//       });
-//   }
-// })
-
-// client.on('message', msg => {
-//   if (msg.content === '!testnerd') {
-//     msg.channel.fetchMessages({
-//       limit: 1
-//       })
-//     .then(r => {
-//       msg.react("✅")
-//     });
-// };
-
-client.on('message', msg => {
-  if (msg.content.toLowerCase() == 'noice') {
-    msg.delete({ timeout: 1})
-    msg.channel.send(" ", {files: ["assets/noice.gif"]})
-  };
+        if (command === 'bruh'){ 
+            client.api.interactions(interaction.id, interaction.token).callback.post({
+                data: {
+                    type: 4,
+                    data: {
+                        content: "<:bruh:629372877388382209> <:bruh:629372877388382209> <:bruh:629372877388382209>"
+                    }
+                }
+            })
+        }
+    });
 });
 
 client.on('message', msg => {
@@ -164,8 +72,6 @@ client.on('message', msg => {
 });
 
 
-// client.login(process.env.token);
 
-// Added for local testing
-const TOKEN = process.env.TOKEN;
-client.login(TOKEN);
+// const TOKEN = process.env.TOKEN;
+client.login(process.env.TOKEN);
