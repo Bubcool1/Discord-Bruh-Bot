@@ -1,15 +1,14 @@
 const {
-  Client,
-  MessageAttachment,
-  Message
+    Client,
+    MessageAttachment,
+    Message
 } = require('discord.js');
 const client = new Client();
 
-// Added for local testing
 require('dotenv').config()
 
 client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
+    console.log(`Logged in as ${client.user.tag}!`);
 });
 
 // Firebase for Thermal telegram
@@ -19,15 +18,15 @@ admin.initializeApp();
 const db = admin.firestore();
 
 client.on('ready', () => {
-  console.log('Bot: Hosting ' + `${client.users.size}` + ' users, in ' + `${client.channels.size}` + ' channels of ' + `${client.guilds.size}` + ' guilds.');
-  client.user.setStatus('online')
-  client.user.setPresence({
-    game: {
-      name: 'FOR RESPONSES',
-      type: "Watching",
-      url: "http://obeardsall.media/wat/"
-    }
-  });
+    console.log('Bot: Hosting ' + `${client.users.cache.size}` + ' users, in ' + `${client.channels.cache.size}` + ' channels of ' + `${client.guilds.cache.size}` + ' guilds/servers.');
+    client.user.setStatus('online')
+    client.user.setPresence({
+        game: {
+            name: 'FOR RESPONSES',
+            type: "Watching",
+            url: "http://obeardsall.media/wat/"
+        }
+    });
 });
 
 client.on('message', msg => {
@@ -167,8 +166,4 @@ client.on('message', msg => {
 });
 
 
-// client.login(process.env.token);
-
-// Added for local testing
-const TOKEN = process.env.TOKEN;
-client.login(TOKEN);
+client.login(process.env.TOKEN);
