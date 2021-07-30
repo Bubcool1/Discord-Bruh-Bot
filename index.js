@@ -73,32 +73,6 @@ client.on('message', msg => {
     }
 });
 
-// client.on('message', msg => {
-//   if (msg.content === '!nerd') {
-//     // msg.delete({ timeout: 1})
-//     // msg.channel.send("You are a nerd");
-//     msg.react('🇳').then(r => {
-//       msg.react('🇪');
-//       });
-//     msg.react('🇪').then(r => {
-//       msg.react('🇷');
-//       });
-//     msg.react('🇷').then(r => {
-//       msg.react('🇩');
-//       });
-//   }
-// })
-
-// client.on('message', msg => {
-//   if (msg.content === '!testnerd') {
-//     msg.channel.fetchMessages({
-//       limit: 1
-//       })
-//     .then(r => {
-//       msg.react("✅")
-//     });
-// };
-
 client.on('message', msg => {
     if (!msg.content.startsWith('!print') || msg.author.bot) return;
     global.args = msg.content.slice(6).trim();
