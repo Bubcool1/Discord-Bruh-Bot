@@ -7,6 +7,20 @@ const client = new Client();
 
 require('dotenv').config()
 
+var commands = {
+    "<:EJ:629372599432118292>": "AH IT'S MUFFIN TIME <:squarenitin:632113566874599444>",
+    "wat": new MessageAttachment('assets/wat.jpg'),
+    "!goosegif": new MessageAttachment('assets/GooseDance.gif'),
+    "!honks": new MessageAttachment('assets/GooseHonks.png'),
+    "!badgoose": new MessageAttachment('assets/GooseBonk.png'),
+    "pls goose": "https://samperson.itch.io/desktop-goose?download",
+    "pls goose mods": "https://desktopgooseunofficial.github.io/ResourceHub/",
+    "wot": "assets/YOUWOTM9-1.jpg",
+    "!shut": "assets/shut.png",
+    "noice": "assets/noice.gif",
+};
+
+
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
 });
@@ -30,85 +44,33 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-  if (msg.content === '!bruh') {
-    msg.delete({
-      timeout: 1
-    })
-    msg.channel.send("Bruh Moment")
-    msg.channel.send("<:bruh:629372877388382209> <:bruh:629372877388382209> <:bruh:629372877388382209>")
-  }
-  if (msg.content === '🥚') {
-    msg.channel.send("You're an egg.")
-    msg.channel.send("🥚🥚🥚")
-  }
-  if (msg.content === "<:EJ:629372599432118292>") {
-    msg.channel.send("AH IT'S MUFFIN TIME <:squarenitin:632113566874599444>")
-  }
-  if (msg.content === '!egg') {
-    msg.channel.send("You're an egg.")
-    msg.channel.send("🥚🥚🥚")
-  }
-  if (msg.content.toLowerCase() === 'wat') {
-    msg.channel.send(" ", {
-      files: ["assets/wat.jpg"]
-    });
-  }
-
-  if (msg.content === '!goosegif') {
-    msg.delete({
-      timeout: 1
-    })
-    msg.channel.send("HONK HONK HONK")
-    const attachment = new MessageAttachment('assets/GooseDance.gif');
-    msg.channel.send(attachment);
-  }
-  if (msg.content === '!honks') {
-    msg.delete({
-      timeout: 1
-    })
-    msg.channel.send("HONK HONK HONK")
-    msg.channel.send(" ", {
-      files: ["assets/GooseHonks.png"]
-    });
-  }
-  if (msg.content === '!badgoose') {
-    msg.delete({
-      timeout: 1
-    })
-    msg.channel.send("HONK HONK HONK")
-    msg.channel.send(" ", {
-      files: ["assets/GooseBonk.png"]
-    });
-  }
-  if (msg.content === "!oli") {
-    msg.channel.send("Ha no.")
-  }
-  if (msg.content.toLowerCase() === 'pls goose') {
-    msg.channel.send("https://samperson.itch.io/desktop-goose?download")
-  }
-
-  if (msg.content.toLowerCase() === "pls goose mods") {
-    msg.channel.send("https://desktopgooseunofficial.github.io/ResourceHub/")
-  }
-
-  if (msg.content === 'wot') {
-    msg.channel.send(" ", {
-      files: ["assets/YOUWOTM9-1.jpg"]
-    });
-  }
-  if (msg.content === 'Wot') {
-    msg.channel.send(" ", {
-      files: ["assets/YOUWOTM9-2.jpg"]
-    });
-  }
-  if (msg.content === '!shut') {
-    msg.delete({
-      timeout: 1
-    })
-    msg.channel.send(" ", {
-      files: ["assets/shut.png"]
-    });
-  }
+    if (msg.content === '!bruh') {
+        msg.delete({
+            timeout: 1
+        })
+        msg.channel.send("Bruh Moment")
+        msg.channel.send("<:bruh:629372877388382209> <:bruh:629372877388382209> <:bruh:629372877388382209>")
+    }
+    if (msg.content === '🥚') {
+        msg.channel.send("You're an egg.")
+        msg.channel.send("🥚🥚🥚")
+    }
+    if (msg.content === '!egg') {
+        msg.channel.send("You're an egg.")
+        msg.channel.send("🥚🥚🥚")
+    }
+    if (msg.content === 'Wot') {
+        msg.channel.send(" ", {
+            files: ["assets/YOUWOTM9-2.jpg"]
+        });
+    };
+    if (msg.content.toLowerCase() in commands) {
+        msg.delete({
+            timeout: 0,
+            reason: "clean"
+        });
+        msg.channel.send(commands[msg.content.toLowerCase()])
+    }
 });
 
 // client.on('message', msg => {
@@ -138,31 +100,20 @@ client.on('message', msg => {
 // };
 
 client.on('message', msg => {
-  if (msg.content.toLowerCase() == 'noice') {
-    msg.delete({
-      timeout: 1
-    })
-    msg.channel.send(" ", {
-      files: ["assets/noice.gif"]
-    })
-  };
-});
+    if (!msg.content.startsWith('!print') || msg.author.bot) return;
+    global.args = msg.content.slice(6).trim();
+    if (args == "") {
+        msg.channel.send("Please give a message.");
+    } else {
+        var content = args + " " + msg.author.tag
+        console.log(content)
 
-client.on('message', msg => {
-  if (!msg.content.startsWith('!print') || msg.author.bot) return;
-  global.args = msg.content.slice(6).trim();
-  if (args == "") {
-    msg.channel.send("Please give a message.");
-  } else {
-    var content = args + " " + msg.author.tag
-    console.log(content)
-
-    db.collection('requests').doc('test').set({
-      printed: false,
-      text: content
-    });
-    console.log("Message sent:" + args)
-  }
+        db.collection('requests').doc('test').set({
+            printed: false,
+            text: content
+        });
+        console.log("Message sent:" + args)
+    }
 });
 
 
