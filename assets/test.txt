@@ -1,0 +1,31 @@
+var commands = {
+    "bruh": "bruh boi", "<:bruh:629372877388382209>" : "<:bruh:629372877388382209> <:bruh:629372877388382209>",
+    "wat": new MessageAttachment('assets/wat.jpg'),
+    "goosegif": new MessageAttachment('assets/GooseDance.gif'),
+    "honks": new MessageAttachment('assets/GooseHonks.png'),
+    "badgoose": new MessageAttachment('assets/GooseBonk.png'),
+    "pls goose": "https://samperson.itch.io/desktop-goose?download",
+    "pls goose mods": "https://desktopgooseunofficial.github.io/ResourceHub/",
+    "wot": "assets/YOUWOTM9-1.jpg",
+    "shut": "assets/shut.png",
+    "noice": "assets/noice.gif",
+};
+
+slashCommand("bruh", "Bruh boi", "<:bruh:629372877388382209> <:bruh:629372877388382209> <:bruh:629372877388382209>")
+
+let board = [
+    ['R','N','B','Q','K','B','N','R'],
+    ['P','P','P','P','P','P','P','P'],
+    [' ',' ',' ',' ',' ',' ',' ',' '],
+    [' ',' ',' ',' ',' ',' ',' ',' '],
+    [' ',' ',' ',' ',' ',' ',' ',' '],
+    [' ',' ',' ',' ',' ',' ',' ',' '],
+    ['p','p','p','p','p','p','p','p'],
+    ['r','n','b','q','k','b','n','r'] 
+]
+
+var commandName = ['bruh', 'wat', 'goosegif', 'honks', 'badgoose', 'pls goose', 'pls goose mods', 'wot', 'shut', 'noice'];
+var commandDesc = ['bruh', 'wat', 'goosegif', 'honks', 'badgoose', 'pls goose', 'pls goose mods', 'wot', 'shut', 'noice'];
+var commandRes = ['<:bruh:629372877388382209> <:bruh:629372877388382209> <:bruh:629372877388382209>', new MessageAttachment('assets/wat.jpg'), new MessageAttachment('assets/GooseDance.gif'), new MessageAttachment('assets/GooseHonks.png'), new MessageAttachment('assets/GooseBonk.png'), "https://samperson.itch.io/desktop-goose?download", "https://desktopgooseunofficial.github.io/ResourceHub/", new MessageAttachment('assets/YOUWOTM9-1.jpg'), new MessageAttachment('assets/shut.png'), new MessageAttachment('assets/noice.gif')];
+
+https://deploy-preview-638--discordjs-guide.netlify.app/interactions/registering-slash-commands.html
