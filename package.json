@@ -9,7 +9,9 @@
     "firebase-admin": "^11.0.0"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "build": "npm install && node index.js",
+    "stop": "pkill --signal SIGINT 'DiscordBruhBot'"
   },
   "repository": {
     "type": "git",

@@ -2,6 +2,7 @@ const { Client, MessageAttachment, Message } = require("discord.js");
 const client = new Client({ intents: ["GUILDS", "GUILD_MESSAGES"] });
 
 require("dotenv").config();
+process.title = 'DiscordBruhBot'
 
 var commands = {
   "<:EJ:629372599432118292>":
