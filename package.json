@@ -4,11 +4,10 @@
   "description": "A bot for discord servers that when someone runs the command !bruh it replies with something special. Along with many other features that were requested by my server.",
   "main": "index.js",
   "dependencies": {
-    "discord.js": "^12.5.3",
+    "discord.js": "^13.8.1",
     "dotenv": "^10.0.0",
-    "firebase-admin": "^9.11.0"
+    "firebase-admin": "^11.0.0"
   },
-  "devDependencies": {},
   "scripts": {
     "start": "node index.js"
   },
