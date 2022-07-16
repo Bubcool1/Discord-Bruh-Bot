@@ -6,15 +6,21 @@ require("dotenv").config();
 var commands = {
   "<:EJ:629372599432118292>":
     "AH IT'S MUFFIN TIME <:squarenitin:632113566874599444>",
-  "wat": { files: [("assets/wat.jpg")] },
-  "!goosegif": { files : [("assets/GooseDance.gif")] },
-  "!honks": { files : [("assets/GooseHonks.png")] },
-  "!badgoose": { files : [("assets/GooseBonk.png")] },
+  "wat": { files: ["assets/wat.jpg"] },
+  "!goosegif": { files: ["assets/GooseDance.gif"] },
+  "!honks": { files: ["assets/GooseHonks.png"] },
+  "!badgoose": { files: ["assets/GooseBonk.png"] },
   "pls goose": "https://samperson.itch.io/desktop-goose?download",
   "pls goose mods": "https://desktopgooseunofficial.github.io/ResourceHub/",
-  "wot": { files : [("assets/YOUWOTM9-1.jpg")] },
-  "!shut": { files : [("assets/shut.png")] },
-  "noice": { files : [("assets/noice.gif")] },
+  "wot": { files: ["assets/YOUWOTM9-1.jpg"] },
+  "!shut": { files: ["assets/shut.png"] },
+  "noice": { files: ["assets/noice.gif"] },
+};
+
+var multiCommands = {
+  "!bruh": ["Bruh Moment", "<:bruh:629372877388382209> <:bruh:629372877388382209> <:bruh:629372877388382209>",],
+  "!egg": ["You're an egg.", "🥚🥚🥚"],
+  "🥚": ["You're an egg.", "🥚🥚🥚"],
 };
 
 client.on("ready", () => {
@@ -48,34 +54,13 @@ client.on("ready", () => {
 });
 
 client.on("messageCreate", (msg) => {
-  if (msg.content === "!bruh") {
-    msg.delete({
-      timeout: 1,
-    });
-    if (msg.type === "REPLY") {
-      msg.fetchReference().then((res) => {
-        res.reply("Bruh Moment");
-        res.reply("<:bruh:629372877388382209> <:bruh:629372877388382209> <:bruh:629372877388382209>");
-      });
-    }
-    else {
-      msg.channel.send("Bruh Moment");
-      msg.channel.send("<:bruh:629372877388382209> <:bruh:629372877388382209> <:bruh:629372877388382209>");
-    }
-  }
-  if (msg.content === "🥚") {
-    msg.channel.send("You're an egg.");
-    msg.channel.send("🥚🥚🥚");
-  }
-  if (msg.content === "!egg") {
-    msg.channel.send("You're an egg.");
-    msg.channel.send("🥚🥚🥚");
-  }
-  if (msg.content === "Wot") { // FIXME This is duplicated.
+  // FIXME This possibly could be handled in with the other commands in the array.
+  if (msg.content === "Wot") {
     msg.channel.send(" ", {
       files: ["assets/YOUWOTM9-2.jpg"],
     });
   }
+
   if (msg.content.toLowerCase() in commands) {
     msg.delete({
       timeout: 0,
@@ -83,11 +68,27 @@ client.on("messageCreate", (msg) => {
     });
     if (msg.type === "REPLY") {
       msg.fetchReference().then((res) => {
-        res.reply(commands[msg.content.toLowerCase()])
+        res.reply(commands[msg.content.toLowerCase()]);
       });
+    } else {
+      msg.channel.send(commands[msg.content.toLowerCase()]);
     }
-    else {
-      msg.channel.send(commands[msg.content.toLowerCase()])
+  }
+
+  // TODO Handle having a different number of messages to send not just dealing with 2
+  if (msg.content.toLowerCase() in multiCommands) {
+    msg.delete({
+      timeout: 0,
+      reason: "clean",
+    });
+    if (msg.type === "REPLY") {
+      msg.fetchReference().then((res) => {
+        res.reply(multiCommands[msg.content.toLowerCase()][0]);
+        msg.channel.send(multiCommands[msg.content.toLowerCase()][1]);
+      });
+    } else {
+      msg.channel.send(multiCommands[msg.content.toLowerCase()][0]);
+      msg.channel.send(multiCommands[msg.content.toLowerCase()][1]);
     }
   }
 });
