@@ -56,12 +56,20 @@ client.on("ready", () => {
 client.on("messageCreate", (msg) => {
   // FIXME This possibly could be handled in with the other commands in the array.
   if (msg.content === "Wot") {
-    msg.channel.send(" ", {
-      files: ["assets/YOUWOTM9-2.jpg"],
+    msg.delete({
+      timeout: 0,
+      reason: "clean",
     });
+    if (msg.type === "REPLY") {
+      msg.fetchReference().then((res) => {
+        res.reply({files: ["assets/YOUWOTM9-2.jpg"] });
+      });
+    } else {
+      msg.channel.send({files: ["assets/YOUWOTM9-2.jpg"] });
+    }
   }
 
-  if (msg.content.toLowerCase() in commands) {
+  if (msg.content.toLowerCase() in commands && msg.content != "Wot") {
     msg.delete({
       timeout: 0,
       reason: "clean",
